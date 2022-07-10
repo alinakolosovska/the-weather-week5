@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Weather</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <h1 class="title">
+      The Weather
+    </h1>
+		<div class="container">
+      <div class="weather-app">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                autofocus="on"
+                autocomplete="off"
+                id="city-input"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <button
+                class="btn btn-success w-100"
+                id="current-location-button"
+              >
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 id="city">Paris </h6>
+              <p id="date">Today</p>
+
+        
+							<div class="float-left">
+                <span class="temperature" id="temperature">⛅️ 23</span
+                ><span class="units">
+                  <a href="#" id="celsius-link">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </span>
+              </div>
+              <p class="card-text">
+                Day 30° • Night 18°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="card border-white mb-3">
+            <div class="card-body" >
+              <div id="wind">
+              <p class="card-text1">
+                💨 Wind - 13 km/h
+              </div>
+                <br /> 
+                <div id="humidity">
+                💦 Humidity - 59% </div> <br />
+                ➗ Pressure - 1013.2 mb
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Now</h7>
+              <h5 class="card-title">⛅️ 25°</h5>
+
+              <p class="card-text">
+                Day 30° • Night 18°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Tomorrow</h7>
+              <h5 class="card-title">🌩 21°</h5>
+
+              <p class="card-text">
+                Day 21° • Night 18°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Monday</h7>
+              <h5 class="card-title">⛅️ 23°</h5>
+
+              <p class="card-text">
+                Day 30° • Night 18°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Tuesday</h7>
+              <h5 class="card-title">⛅️ 23°</h5>
+
+              <p class="card-text">
+                Day 30° • Night 18°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Wednesday</h7>
+              <h5 class="card-title">☀️ 26°</h5>
+
+              <p class="card-text">
+                Day 32° • Night 23°
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h7>Thursday</h7>
+              <h5 class="card-title">🌦 24°</h5>
+
+              <p class="card-text">
+                Day 25° • Night 19°
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row cities">
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/7bc0022212d6873b8226ac81bad9714bc956aef8851519b045d7750eb3ea4745"
+            target="_blank"
+          >
+            London
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/7f9520bda508a11d874387f7b129382913a45ddd4279e483a4f4bdb007f3103f"
+            target="_blank"
+          >
+            Lisbon
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/0dd1f5d86ccdf65c509da8631d100351f372b0657440322c7291d5d3d261d6ea"
+            target="_blank"
+          >
+            Milan
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/5ca23443513a0fdc1d37ae2ffaf5586162c6fe592a66acc9320a0d0536be1bb9"
+            target="_blank"
+          >
+            Berlin
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/d8ccf908e3c4c748e232720575df7cdbca6e0f1b412bca8595d8a28d0c28e8bc"
+            target="_blank"
+          >
+            Toronto
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a
+            href="https://weather.com/weather/today/l/adad504fbbca4212b954923f021d25c99b7e7d5eb1ae2f4c13b4ad689872dd37"
+            target="_blank"
+          >
+            Warsaw
+          </a>
+        </div>
+      </div>
+    </div>
+<p><a href=" " >Open-sourse code</a>by Alina</p>
+    <script src="src/index.js"></script>
+  </body>
+</html>
